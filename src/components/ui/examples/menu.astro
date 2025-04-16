@@ -1,0 +1,63 @@
+<div
+	id="background-menu"
+	class="inset-0 z-50 hidden bg-[rgba(0,0,0,0.1)] backdrop-blur-sm transition duration-200 ease-in-out">
+</div>
+<div
+	id="menu"
+	class="fixed top-0 bottom-0 left-0 z-50 h-dvh w-full max-w-sm -translate-x-[200%] border-r-1 border-neutral-200 bg-neutral-100 transition-transform duration-150 ease-in-out dark:border-neutral-800 dark:bg-neutral-900">
+	<div
+		class="relative flex items-center justify-between border-b-1 border-neutral-800 p-4">
+		<h3 class="text-lg font-medium">Example</h3>
+		<button
+			id="btn-close"
+			class="inline-flex cursor-pointer items-center rounded-md p-1 text-sm text-neutral-900 transition-colors duration-200 ease-in-out hover:bg-neutral-200 focus:outline-none dark:bg-neutral-900 dark:text-neutral-100 dark:hover:bg-neutral-800">
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				fill="none"
+				viewBox="0 0 24 24"
+				stroke-width="1.5"
+				stroke="currentColor"
+				class="size-6">
+				<path
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					d="M6 18 18 6M6 6l12 12"></path>
+			</svg>
+		</button>
+	</div>
+</div>
+
+<button
+	id="btn-open"
+	class="inline-flex cursor-pointer items-center rounded-md p-1 text-sm text-neutral-900 transition-colors duration-200 ease-in-out hover:bg-neutral-200 focus:outline-none dark:bg-neutral-900 dark:text-neutral-100 dark:hover:bg-neutral-800">
+	<svg
+		xmlns="http://www.w3.org/2000/svg"
+		fill="none"
+		viewBox="0 0 24 24"
+		stroke-width="1.5"
+		stroke="currentColor"
+		class="size-6">
+		<path
+			stroke-linecap="round"
+			stroke-linejoin="round"
+			d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
+	</svg>
+</button>
+
+<script>
+	import { $ } from "@/lib/dom-selector"
+
+	const $openMenu = $("#btn-open")
+	const $closeMenu = $("#btn-close")
+	const $background = $("#background-menu")
+	const $menu = $("#menu")
+
+	$openMenu?.addEventListener("click", () => {
+		$background?.classList.replace("hidden", "fixed")
+		$menu?.classList.replace("-translate-x-[200%]", "translate-x-0")
+	})
+	$closeMenu?.addEventListener("click", () => {
+		$background?.classList.replace("fixed", "hidden")
+		$menu?.classList.replace("translate-x-0", "-translate-x-[200%]")
+	})
+</script>

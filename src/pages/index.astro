@@ -5,18 +5,17 @@ import RootLayout from "@/layouts/RootLayout.astro"
 import Badge from "@/components/ui/examples/badge.astro"
 import Button from "@/components/ui/examples/button.astro"
 import CardFlip from "@/components/ui/examples/card.astro"
+import Disclosure from "@/components/ui/examples/disclosure.astro"
 import Inputs from "@/components/ui/examples/input.astro"
+import Menu from "@/components/ui/examples/menu.astro"
 
 const COMPONENTS = [
-	{
-		name: "Buttons",
-		component: Button,
-		href: "/docs/button",
-		children: "Button"
-	},
-	{ name: "Inputs", component: Inputs, href: "/docs/input", children: "Email" },
-	{ name: "Cards", component: CardFlip, href: "/docs/card", children: "" },
-	{ name: "Badge", component: Badge, href: "/docs/badge", children: "Badge" }
+	{ name: "Buttons", component: Button, href: "/docs/button" },
+	{ name: "Inputs", component: Inputs, href: "/docs/input" },
+	{ name: "Menus", component: Menu, href: "/docs/menu" },
+	{ name: "Cards", component: CardFlip, href: "/docs/card" },
+	{ name: "Badges", component: Badge, href: "/docs/badge" },
+	{ name: "Disclosure", component: Disclosure, href: "/docs/disclosure" }
 ] as const
 ---
 
@@ -47,9 +46,9 @@ const COMPONENTS = [
 							</svg>
 						</a>
 						<div class="flex size-full items-center justify-center border-1 border-neutral-800">
-							<component.component>{component.children}</component.component>
+							<component.component client:visible />
 						</div>
-						<p class="border-x-1 border-b-1 border-neutral-800 p-2 text-sm font-semibold">
+						<p class="border-x-1 border-b-1 border-neutral-800 p-2 text-sm">
 							{component.name}
 						</p>
 					</div>
