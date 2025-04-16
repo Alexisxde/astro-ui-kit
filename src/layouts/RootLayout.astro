@@ -1,0 +1,52 @@
+---
+import Footer from "@/components/footer.astro"
+import Header from "@/components/header.astro"
+import "@/styles/global.css"
+import "@fontsource/poppins"
+
+interface Props {
+	title?: string
+	description?: string
+}
+const { title, description } = Astro.props
+---
+
+<!doctype html>
+<html lang="es" class="dark">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<meta
+			name="description"
+			content={description ||
+				"AstroUIKit is a component library built with Tailwind CSS."}
+		/>
+		<meta
+			name="keywords"
+			content="AstroUIKit, component library, Tailwind CSS, Motion, Framer Motion, UI components"
+		/>
+		<meta name="author" content="AstroUIKit" />
+		<meta name="theme-color" content="#202724" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title || "AstroUIKit | Components"}</title>
+	</head>
+	<body>
+		<section class="flex w-full flex-col">
+			<Header />
+			<div class="relative h-full">
+				<div class="pointer-events-none absolute inset-0 z-0 px-4 sm:px-6">
+					<div class="max-w-8xl mx-auto flex h-full gap-4">
+						<div class="flex-1 border-x-1 border-neutral-800"></div>
+						<div class="hidden flex-1 border-x-1 border-neutral-800 sm:block">
+						</div>
+						<div class="hidden flex-1 border-x-1 border-neutral-800 lg:block">
+						</div>
+					</div>
+				</div>
+				<slot />
+			</div>
+			<Footer />
+		</section>
+	</body>
+</html>
