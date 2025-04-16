@@ -1,0 +1,59 @@
+---
+interface NavigationItem {
+	name: string
+	href: string
+	isNew?: boolean
+	isUpdated?: boolean
+}
+
+interface NavigationGroup { 
+  name: string
+  children: NavigationItem[]
+}
+
+const NAVIGATION: NavigationGroup[] = [
+	{
+		name: "Getting Started",
+		children: [
+			{ name: "Introduction", href: "/docs" },
+			{ name: "Installation", href: "/docs/installation" }
+		]
+	},
+	{
+		name: "Components",
+		children: [
+      { name: "Button", href: "/docs/button" }
+    ]
+	}
+]
+---
+
+<aside
+	class="sticky h-svh top-12 z-20 flex w-[200px] shrink-0 flex-col border-b-1 border-r-1 border-neutral-800 bg-neutral-900 p-6 overflow-y-auto">
+	<nav class="flex flex-col gap-2">
+		{
+			NAVIGATION.map(({ name, children }) => (
+        <div class="w-11/12 text-sm/6 text-neutral-100">
+					{name}
+				</div>
+        <div class="space-y-1 border-l-1 border-neutral-800">
+          {children.map(({ name, href, isNew, isUpdated }) => (
+            <a class="transition-colors duration-100 ease-in-out flex items-center pl-4 text-xs font-normal text-neutral-400 hover:text-neutral-100" href={href}>
+              <span>{name}</span>
+              {isNew && (
+                <span class="ml-2 rounded-lg px-2 text-[10px] font-semibold whitespace-nowrap bg-neutral-700 text-emerald-50">
+                  New
+                </span>
+              )}
+              {isUpdated && (
+                <span class="ml-2 rounded-lg bg-amber-100 px-2 text-[10px] font-semibold whitespace-nowrap text-amber-800 dark:bg-amber-950 dark:text-amber-50">
+                  Updated
+                </span>
+              )}
+            </a>
+          ))}
+        </div>
+      ))
+    }
+	</nav>
+</aside>

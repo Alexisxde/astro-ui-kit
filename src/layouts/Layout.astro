@@ -1,22 +1,52 @@
+---
+import Footer from "@/components/footer.astro"
+import Header from "@/components/header.astro"
+import Sidebar from "@/components/sidebar.astro"
+import "@/styles/global.css"
+import "@fontsource/cascadia-code"
+import "@fontsource/poppins"
+
+interface Props {
+	title?: string
+	description?: string
+}
+
+const { title, description } = Astro.props
+---
+
 <!doctype html>
-<html lang="en">
+<html lang="es" class="dark">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
+		<meta
+			name="description"
+			content={description ||
+				"AstroUIKit is a component library built with Tailwind CSS."}
+		/>
+		<meta
+			name="keywords"
+			content="AstroUIKit, component library, Astro, Tailwind CSS, UI components"
+		/>
+		<meta name="theme-color" content="#202724" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>{`${title} | Component`}</title>
 	</head>
 	<body>
-		<slot />
+		<section class="flex h-screen w-full flex-col">
+			<Header />
+			<div class="flex">
+				<Sidebar />
+				<div class="flex w-full flex-col">
+					<main class="max-w-8xl mx-auto w-full flex-1 px-12 py-8">
+						<article class="prose-neutral prose-pre:p-5 max-w-xl">
+							<slot />
+						</article>
+					</main>
+					<Footer />
+				</div>
+			</div>
+		</section>
 	</body>
 </html>
-
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>

@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+@plugin "@tailwindcss/typography";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+	--default-font-family: "Poppins", sans-serif;
+	--container-8xl: 1366px;
+}
+
+html {
+	@apply bg-neutral-100 text-neutral-900 dark:bg-neutral-900 dark:text-neutral-100;
+}
+
+@layer utilities {
+	:root {
+		--scrollbar-color: rgba(0, 0, 0, 0.3);
+	}
+
+	.dark {
+		--scrollbar-color: rgba(255, 255, 255, 0.3);
+	}
+
+	html {
+		-webkit-tap-highlight-color: transparent;
+		scrollbar-color: var(--scrollbar-color) transparent;
+		scrollbar-width: thin;
+	}
+}

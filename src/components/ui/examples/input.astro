@@ -1,0 +1,13 @@
+<div class="relative">
+  <input
+    type="text"
+    id="input"
+    class="peer block w-full rounded-lg border border-neutral-300 py-2 ps-3 pe-4 focus:border-neutral-400 focus:outline-none dark:border-neutral-800 dark:focus:border-neutral-700"
+    required
+  />
+  <label
+    for="input"
+    class="absolute top-3 left-3 text-sm text-neutral-500 transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-neutral-400 peer-focus:top-[-12px] peer-focus:bg-neutral-100 peer-focus:p-1 peer-focus:text-[10px] peer-focus:text-neutral-400 dark:peer-placeholder-shown:text-neutral-400 dark:peer-focus:bg-neutral-900 dark:peer-focus:text-neutral-400">
+    <slot />
+  </label>
+</div>

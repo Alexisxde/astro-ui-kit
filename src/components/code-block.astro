@@ -1,0 +1,25 @@
+---
+import { extractCodeFromFilePath } from "@/lib/code"
+import { Code } from "astro:components"
+import type {
+	BuiltinLanguage,
+	LanguageRegistration,
+	SpecialLanguage
+} from "shiki"
+
+interface Props {
+	filePath?: string
+	code: string
+	lang?: BuiltinLanguage | SpecialLanguage | LanguageRegistration
+}
+
+const { filePath, code, lang = "astro" } = Astro.props
+const fileContent = filePath ? extractCodeFromFilePath(filePath) : code
+---
+
+<Code
+	code={fileContent}
+	{lang}
+	class="h-auto max-h-[400px] overflow-y-auto rounded-lg border-1 border-neutral-200 dark:border-neutral-800"
+	wrap={true}
+/>

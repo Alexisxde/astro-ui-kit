@@ -1,5 +1,47 @@
 {
-  "extends": "astro/tsconfigs/strict",
-  "include": [".astro/types.d.ts", "**/*"],
-  "exclude": ["dist"]
+	"extends": "astro/tsconfigs/strict",
+	"include": [
+		"src/**/*.ts",
+		"src/**/*.tsx",
+		"src/**/*.astro",
+		".astro/types.d.ts",
+		"src/pages/docs/index.mdx"
+	],
+	"compilerOptions": {
+		// Enable top-level await, and other modern ESM features.
+		"target": "ESNext",
+		"module": "ESNext",
+		// Enable node-style module resolution, for things like npm package imports.
+		"moduleResolution": "node",
+		// Enable JSON imports.
+		"resolveJsonModule": true,
+		"removeComments": true,
+		"preserveConstEnums": true,
+		"strict": true,
+		"alwaysStrict": true,
+		"strictNullChecks": true,
+		"noUncheckedIndexedAccess": true,
+		"noImplicitAny": true,
+		"noImplicitReturns": true,
+		"noImplicitThis": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"allowUnreachableCode": false,
+		"noFallthroughCasesInSwitch": true,
+		"declaration": true,
+		"esModuleInterop": true,
+		"allowSyntheticDefaultImports": true,
+		"skipLibCheck": true,
+		"forceConsistentCasingInFileNames": true,
+		// Enable stricter transpilation for better output.
+		"isolatedModules": true,
+		"verbatimModuleSyntax": true,
+		"baseUrl": ".",
+		"paths": { "@/*": ["src/*"] },
+		"jsx": "react-jsx",
+		"jsxImportSource": "react",
+		"plugins": [{ "name": "@astrojs/ts-plugin" }],
+		"allowJs": false
+	},
+	"exclude": ["dist"]
 }

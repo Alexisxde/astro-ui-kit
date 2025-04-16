@@ -1,11 +1,60 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import Hero from "@/components/hero.astro"
+import RootLayout from "@/layouts/RootLayout.astro"
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Badge from "@/components/ui/examples/badge.astro"
+import Button from "@/components/ui/examples/button.astro"
+import CardFlip from "@/components/ui/examples/card.astro"
+import Inputs from "@/components/ui/examples/input.astro"
+
+const COMPONENTS = [
+	{
+		name: "Buttons",
+		component: Button,
+		href: "/docs/button",
+		children: "Button"
+	},
+	{ name: "Inputs", component: Inputs, href: "/docs/input", children: "Email" },
+	{ name: "Cards", component: CardFlip, href: "/docs/card", children: "" },
+	{ name: "Badge", component: Badge, href: "/docs/badge", children: "Badge" }
+] as const
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<RootLayout>
+	<Hero />
+	<main class="max-w-8xl mx-auto w-full px-4 sm:px-6">
+		<section
+			class="grid grid-cols-1 gap-4 pb-10 sm:grid-cols-2 lg:grid-cols-3 2xl:gap-16">
+			{
+				COMPONENTS.map(component => (
+					<div class="group relative mx-4 flex h-52 flex-col">
+						<a
+							class="absolute top-5 right-5 size-4 opacity-50 transition-opacity hover:opacity-100"
+							href={`${component.href}`}>
+							<svg
+								class="transition-transform duration-150 ease-in-out group-hover:translate-x-1.5 group-hover:-translate-y-1.5"
+								xmlns="http://www.w3.org/2000/svg"
+								fill="none"
+								viewBox="0 0 24 24"
+								stroke-width="1.5"
+								stroke="currentColor"
+								class="size-6">
+								<path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25"
+								/>
+							</svg>
+						</a>
+						<div class="flex size-full items-center justify-center border-1 border-neutral-800">
+							<component.component>{component.children}</component.component>
+						</div>
+						<p class="border-x-1 border-b-1 border-neutral-800 p-2 text-sm font-semibold">
+							{component.name}
+						</p>
+					</div>
+				))
+			}
+		</section>
+	</main>
+</RootLayout>
