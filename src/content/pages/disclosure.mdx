@@ -1,0 +1,26 @@
+---
+name: Disclosure
+title: Disclosure
+description: Disclosure
+slug: disclosure
+author: Alexissxde
+---
+
+import CodeBlock from "@/components/code-block.astro"
+import ComponentPreview from "@/components/component-preview.astro"
+import Disclosure from "@/components/examples/disclosure.astro"
+import Tabs from "@/components/tabs.astro"
+
+# {frontmatter.title}
+
+
+<Tabs client:visible>
+	<ComponentPreview slot="preview">
+		<Disclosure />
+	</ComponentPreview>
+	<CodeBlock
+		slot="code"
+		filePath="src/components/examples/disclosure.astro"
+		lang="astro"
+	/>
+</Tabs>
