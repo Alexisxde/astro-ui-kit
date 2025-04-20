@@ -22,9 +22,19 @@ html {
 		--scrollbar-color: rgba(255, 255, 255, 0.3);
 	}
 
-	html {
+	* {
 		-webkit-tap-highlight-color: transparent;
 		scrollbar-color: var(--scrollbar-color) transparent;
 		scrollbar-width: thin;
+	}
+}
+
+@media (prefers-color-scheme: dark) {
+	.shiki,
+	.shiki span,
+	.astro-code,
+	.astro-code span {
+		background-color: #202427 !important;
+		font-family: "Cascadia Code", monospace !important;
 	}
 }

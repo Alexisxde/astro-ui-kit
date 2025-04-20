@@ -1,0 +1,67 @@
+---
+name: Buttons
+title: Buttons
+description: Variantes de botones.
+slug: button
+badge:
+  - HTML
+  - Astro
+  - TailwindCSS
+author: Alexissxde
+---
+
+import CodeBlock from "@/components/code-block.astro"
+import ComponentPreview from "@/components/component-preview.astro"
+import Buttons from "@/components/examples/buttons.astro"
+import ButtonsSizes from "@/components/examples/buttons-sizes.astro"
+import Tabs from "@/components/tabs.astro"
+
+# Buttons
+
+<Tabs client:visible>
+	<ComponentPreview slot="preview">
+		<Buttons />
+	</ComponentPreview>
+	<CodeBlock
+		slot="code"
+		filePath="src/components/examples/buttons.astro"
+		lang="astro"
+	/>
+</Tabs>
+
+## Tamaños
+
+<ComponentPreview>
+  <ButtonsSizes />
+</ComponentPreview>
+
+## Instalación
+
+<CodeBlock code="npm install class-variance-authority clsx tailwind-merge" lang="bash" />
+
+Luego copie el siguiente codigo, cree un archivo en `src/components/ui/button.astro` y peguelo ahí.
+
+<CodeBlock filePath="src/components/ui/button.astro" />
+
+## Importación
+
+<CodeBlock
+	code={`---
+  import Button from "@/components/ui/button.astro"
+---`}
+	lang="astro"
+/>
+
+Para usar los alias "@/" configure su archivo `ts.config.json` <a href="/docs/installation#configurar-alias-en-el-tsconfigjson">Mirar como configurar aquí</a>
+
+## Component API
+
+### Button
+
+| Prop     | Type                                                                        | Default   | Description               |
+| :------- | :-------------------------------------------------------------------------- | :-------- | :------------------------ |
+| slot     | string                                                                      |           | El contenido del button.  |
+| variants | 'primary' \| 'secondary' \| 'outline' \| 'ghost' \| 'link' \| 'destructive' | 'primary' | Variantes del button.     |
+| size     | 'sm' \| 'md' \| 'lg' \| 'icon'                                              | 'md'      | Tamaño del button.        |
+| disabled | boolean                                                                     | false     | Desabilitar button.       |
+| class    | string                                                                      |           | Clases opcionales de CSS. |

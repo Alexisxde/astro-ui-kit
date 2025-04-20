@@ -1,0 +1,14 @@
+---
+import GitHubIcon from "@/components/icons/github.astro"
+import Button from "@/components/ui/button.astro"
+---
+
+<div
+	class="flex w-full flex-wrap items-center justify-center gap-2 rounded-md border border-neutral-800 p-24">
+	<Button variant="outline" size="sm" class="lowercase">sm</Button>
+	<Button variant="outline" size="md" class="lowercase">md</Button>
+	<Button variant="outline" size="lg" class="lowercase">lg</Button>
+	<Button variant="outline" size="icon">
+		<GitHubIcon className="size-5" />
+	</Button>
+</div>

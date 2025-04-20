@@ -1,13 +1,25 @@
+---
+import { cn } from "@/lib/utils"
+
+interface Props extends astroHTML.JSX.HTMLAttributes {}
+
+const { class: className, ...rest } = Astro.props
+---
+
 <div
 	id="background-menu"
 	class="inset-0 z-50 hidden bg-[rgba(0,0,0,0.1)] backdrop-blur-sm transition duration-200 ease-in-out">
 </div>
 <div
 	id="menu"
-	class="fixed top-0 bottom-0 left-0 z-50 h-dvh w-full max-w-sm -translate-x-[200%] border-r-1 border-neutral-200 bg-neutral-100 transition-transform duration-150 ease-in-out dark:border-neutral-800 dark:bg-neutral-900">
+	class={cn(
+		"fixed top-0 right-0 bottom-0 z-50 h-dvh w-full max-w-sm border-r-1 translate-x-[200%] border-neutral-200 bg-neutral-100 transition-transform duration-150 ease-in-out dark:border-neutral-800 dark:bg-neutral-900",
+		className
+	)}
+	{...rest}>
 	<div
 		class="relative flex items-center justify-between border-b-1 border-neutral-800 p-4">
-		<h3 class="text-lg font-medium">Example</h3>
+		<h3 class="m-1! text-lg font-medium">Example</h3>
 		<button
 			id="btn-close"
 			class="inline-flex cursor-pointer items-center rounded-md p-1 text-sm text-neutral-900 transition-colors duration-200 ease-in-out hover:bg-neutral-200 focus:outline-none dark:bg-neutral-900 dark:text-neutral-100 dark:hover:bg-neutral-800">
@@ -24,6 +36,9 @@
 					d="M6 18 18 6M6 6l12 12"></path>
 			</svg>
 		</button>
+	</div>
+	<div class="p-4">
+		<slot />
 	</div>
 </div>
 
@@ -54,10 +69,10 @@
 
 	$openMenu?.addEventListener("click", () => {
 		$background?.classList.replace("hidden", "fixed")
-		$menu?.classList.replace("-translate-x-[200%]", "translate-x-0")
+		$menu?.classList.replace("translate-x-[200%]", "translate-x-0")
 	})
 	$closeMenu?.addEventListener("click", () => {
 		$background?.classList.replace("fixed", "hidden")
-		$menu?.classList.replace("translate-x-0", "-translate-x-[200%]")
+		$menu?.classList.replace("translate-x-0", "translate-x-[200%]")
 	})
 </script>

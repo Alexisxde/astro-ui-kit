@@ -1,0 +1,17 @@
+---
+import GithubIcon from "@/components/icons/github.astro"
+import Menu from "@/components/ui/sheet.astro"
+---
+
+<header
+	class="flex h-12 w-full items-center justify-between rounded-md border border-neutral-800 p-4">
+	<span class="text-lg font-bold">LOGO</span>
+	<div class="flex items-center gap-4">
+		<a
+			class="text-neutral-400 transition-colors duration-300 ease-in-out hover:text-neutral-100"
+			href="http://github.com/Alexisxde/astro-ui-kit">
+			<GithubIcon class="size-5" />
+		</a>
+		<Menu>Menu example</Menu>
+	</div>
+</header>

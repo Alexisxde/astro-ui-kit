@@ -1,0 +1,66 @@
+---
+name: Badges
+title: Badges
+description: Variantes de badges.
+slug: badge
+badge:
+  - HTML
+  - Astro
+  - TailwindCSS
+author: Alexissxde
+---
+
+import CodeBlock from "@/components/code-block.astro"
+import ComponentPreview from "@/components/component-preview.astro"
+import Badges from "@/components/examples/badges.astro"
+import BadgesSizes from "@/components/examples/badges-sizes.astro"
+import Tabs from "@/components/tabs.astro"
+
+# Badges
+
+<Tabs client:visible>
+	<ComponentPreview slot="preview">
+		<Badges />
+	</ComponentPreview>
+	<CodeBlock
+		slot="code"
+		filePath="src/components/examples/badges.astro"
+		lang="astro"
+	/>
+</Tabs>
+
+## Tamaños
+
+<ComponentPreview>
+  <BadgesSizes />
+</ComponentPreview>
+
+## Instalación
+
+<CodeBlock code="npm install class-variance-authority clsx tailwind-merge" lang="bash" />
+
+Luego copie el siguiente codigo, cree un archivo en `src/components/ui/button.astro` y peguelo ahí.
+
+<CodeBlock filePath="src/components/ui/badge.astro" />
+
+## Importación
+
+<CodeBlock
+	code={`---
+  import Badge from "@/components/ui/badge.astro"
+---`}
+	lang="astro"
+/>
+
+Para usar los alias "@/" configure su archivo `ts.config.json` <a href="/docs/installation#configurar-alias-en-el-tsconfigjson">Mirar como configurar aquí</a>
+
+## Component API
+
+### Badge
+
+| Prop     | Type                                                                                                                  | Default   | Description               |
+| :------- | :-------------------------------------------------------------------------------------------------------------------- | :-------- | :------------------------ |
+| slot     | string                                                                                                                |           | El contenido del badge.  |
+| variants | 'neutral' \| 'red' \| 'blue' \| 'green' \| 'yellow' \| 'pink' \| 'orange' \| 'cyan' \| 'fuchsia' \| 'purple' \| 'sky' | 'neutral' | Variantes del badge (Colores de TailwindCSS).     |
+| size     | 'xs' \| 'sm' \| 'md'                                                                                                  | 'xs'      | Tamaño del badge.         |
+| class    | string                                                                                                                |           | Clases opcionales de CSS. |

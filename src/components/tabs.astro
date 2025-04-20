@@ -1,0 +1,48 @@
+<div
+	class="w-full rounded-md border border-neutral-200 bg-neutral-100 p-4 dark:border-neutral-800 dark:bg-neutral-900">
+	<div
+		class="mb-2 flex items-center gap-4 border-b border-neutral-800 pb-2 text-sm font-medium text-neutral-200">
+		<button
+			id="tab-1"
+			class="tab"
+			aria-controls="panel-1"
+			class="inline-block p-4 focus:outline-none">Preview</button
+		>
+		<button
+			id="tab-2"
+			class="tab"
+			aria-controls="panel-2"
+			class="inline-block p-4 focus:outline-none">Code</button
+		>
+	</div>
+
+	<div>
+		<div id="panel-1" class="tab-panel">
+			<slot name="preview" />
+		</div>
+		<div id="panel-2" class="tab-panel hidden">
+			<slot name="code" />
+		</div>
+	</div>
+</div>
+
+<script>
+	import { $$ } from "@/lib/dom-selector"
+
+	const $tabs = $$(".tab")
+	const $panels = $$(".tab-panel")
+
+	$tabs.forEach(tab => {
+		tab.addEventListener("click", () => {
+			let $tabTarget = tab.getAttribute("aria-controls")
+			$panels.forEach(panel => {
+				let $panelId = panel.getAttribute("id")
+				if ($tabTarget === $panelId) {
+					panel.classList.replace("hidden", "block")
+				} else {
+					panel.classList.add("hidden")
+				}
+			})
+		})
+	})
+</script>

@@ -1,0 +1,55 @@
+---
+name: Sheet
+title: Sheet
+description: Variantes de sheets.
+slug: sheet
+badge:
+  - HTML
+  - Astro
+  - TailwindCSS
+author: Alexissxde
+---
+
+import CodeBlock from "@/components/code-block.astro"
+import ComponentPreview from "@/components/component-preview.astro"
+import Sheet from "@/components/examples/sheet.astro"
+import Tabs from "@/components/tabs.astro"
+
+# Sheet
+
+<Tabs client:visible>
+	<ComponentPreview slot="preview">
+		<Sheet />
+	</ComponentPreview>
+	<CodeBlock
+		slot="code"
+		filePath="src/components/examples/sheet.astro"
+		lang="astro"
+	/>
+</Tabs>
+
+## Instalación
+
+Copie el siguiente codigo, cree un archivo en `src/components/ui/sheet.astro` y peguelo ahí.
+
+<CodeBlock filePath="src/components/ui/sheet.astro" />
+
+## Importación
+
+<CodeBlock
+	code={`---
+  import Sheet from "@/components/ui/sheet.astro"
+---`}
+	lang="astro"
+/>
+
+Para usar los alias "@/" configure su archivo `ts.config.json` <a href="/docs/installation#configurar-alias-en-el-tsconfigjson">Mirar como configurar aquí</a>
+
+## Component API
+
+### Input
+
+| Prop      | Type              | Description                          |
+| :-------- | :---------------- | :----------------------------------- |
+| slot      | string            | El contenido del sheet.              |
+| class     | string            | Clases opcionales de CSS.            |

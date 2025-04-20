@@ -1,0 +1,44 @@
+---
+name: installation
+title: Installation - WertyUI
+description: How to install WertyUI in your project.
+slug: installation
+---
+
+import CodeBlock from "@/components/code-block.astro"
+
+# Installation
+
+## Install Tailwind CSS
+
+Components are styled using Tailwind CSS. Follow the [official installation guide](https://tailwindcss.com/docs/installation) to add it to your project.
+
+## Añadir una utility
+
+<CodeBlock code="npm install clsx tailwind-merge" lang="bash" />
+
+Luego crear un archivo en `lib/utils.ts` para manejar las clases de TailwindCSS:
+
+<CodeBlock filePath="src/lib/utils.ts" lang="ts" />
+
+Algunos componentes necesitan `class-variance-authority` así que si lo necesita instalelo.
+
+<CodeBlock code="npm install class-variance-authority" lang="bash" />
+
+Crear un archivo en `src/lib/dom-selector.ts`:
+
+Si no usa TypeScript solamente cree un archivo `dom-selector.js` y elimine el tipado.
+
+<CodeBlock filePath="src/lib/dom-selector.ts" lang="ts" />
+
+
+## Configurar Alias en el tsconfig.json
+
+<CodeBlock code={
+  `{
+    "compilerOptions": {
+      "baseUrl": ".",
+		  "paths": { "@/*": ["src/*"] }
+    }
+  }`
+} lang="ts" />

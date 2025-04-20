@@ -1,0 +1,57 @@
+---
+name: Inputs
+title: Inputs
+description: Variantes de inputs.
+slug: input
+badge:
+  - HTML
+  - Astro
+  - TailwindCSS
+author: Alexissxde
+---
+
+import CodeBlock from "@/components/code-block.astro"
+import ComponentPreview from "@/components/component-preview.astro"
+import Form from "@/components/examples/form.astro"
+import Tabs from "@/components/tabs.astro"
+
+# Input
+
+<Tabs client:visible>
+	<ComponentPreview slot="preview">
+		<Form />
+	</ComponentPreview>
+	<CodeBlock
+		slot="code"
+		filePath="src/components/examples/form.astro"
+		lang="astro"
+	/>
+</Tabs>
+
+## Instalación
+
+Copie el siguiente codigo, cree un archivo en `src/components/ui/input.astro` y peguelo ahí.
+
+<CodeBlock filePath="src/components/ui/input.astro" />
+
+## Importación
+
+<CodeBlock
+	code={`---
+  import Input from "@/components/ui/input.astro"
+---`}
+	lang="astro"
+/>
+
+Para usar los alias "@/" configure su archivo `ts.config.json` <a href="/docs/installation#configurar-alias-en-el-tsconfigjson">Mirar como configurar aquí</a>
+
+## Component API
+
+### Input
+
+| Prop  | Type   | Description               |
+| :---- | :----- | :------------------------ |
+| type  | string | El tipo del input.        |
+| id    | string | El ID unico.              |
+| slot  | string | El nombre del input.      |
+| class | string | Clases opcionales de CSS. |
