@@ -3,6 +3,7 @@ import Footer from "@/components/footer.astro"
 import Header from "@/components/header.astro"
 import "@/styles/global.css"
 import "@fontsource/poppins"
+import { ClientRouter as ViewTransition } from "astro:transitions"
 
 interface Props {
 	title?: string
@@ -19,17 +20,18 @@ const { title, description } = Astro.props
 		<meta
 			name="description"
 			content={description ||
-				"AstroUIKit is a component library built with Tailwind CSS."}
+				"Astro UI Kit son componentes construidos para usar con Astro y Tailwind CSS."}
 		/>
 		<meta
 			name="keywords"
-			content="AstroUIKit, component library, Tailwind CSS, Motion, Framer Motion, UI components"
+			content="Astro UI Kit, component library, Tailwind CSS, UI components"
 		/>
 		<meta name="author" content="AstroUIKit" />
 		<meta name="theme-color" content="#202724" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>{title || "AstroUIKit | Components"}</title>
+		<title>{title || "Astro UI Kit | Components"}</title>
+		<ViewTransition />
 	</head>
 	<body>
 		<section class="flex w-full flex-col">

@@ -5,6 +5,7 @@ import Sidebar from "@/components/sidebar.astro"
 import "@/styles/global.css"
 import "@fontsource/cascadia-code"
 import "@fontsource/poppins"
+import { ClientRouter as ViewTransition } from "astro:transitions"
 
 interface Props {
 	title?: string
@@ -22,7 +23,7 @@ const { title, description } = Astro.props
 		<meta
 			name="description"
 			content={description ||
-				"AstroUIKit is a component library built with Tailwind CSS."}
+				"Astro UI Kit son componentes construidos para usar con Astro y Tailwind CSS."}
 		/>
 		<meta
 			name="keywords"
@@ -32,6 +33,7 @@ const { title, description } = Astro.props
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{`${title} | Component`}</title>
+		<ViewTransition />
 	</head>
 	<body>
 		<section class="flex h-screen w-full flex-col">
@@ -39,7 +41,7 @@ const { title, description } = Astro.props
 			<div class="flex">
 				<Sidebar />
 				<div class="flex w-full flex-col">
-					<main class="max-w-8xl mx-auto w-full flex-1 px-4 md:px-12 py-8">
+					<main class="max-w-8xl mx-auto w-full flex-1 px-4 py-8 md:px-12">
 						<article class="prose prose-invert max-w-3xl">
 							<slot />
 						</article>
