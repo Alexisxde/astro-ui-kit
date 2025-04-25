@@ -3,7 +3,6 @@ import Footer from "@/components/footer.astro"
 import Header from "@/components/header.astro"
 import "@/styles/global.css"
 import "@fontsource/poppins"
-import { ClientRouter as ViewTransition } from "astro:transitions"
 
 interface Props {
 	title?: string
@@ -31,7 +30,6 @@ const { title, description } = Astro.props
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title || "Astro UI Kit | Components"}</title>
-		<ViewTransition />
 	</head>
 	<body>
 		<section class="flex w-full flex-col">

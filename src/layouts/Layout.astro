@@ -5,7 +5,6 @@ import Sidebar from "@/components/sidebar.astro"
 import "@/styles/global.css"
 import "@fontsource/cascadia-code"
 import "@fontsource/poppins"
-import { ClientRouter as ViewTransition } from "astro:transitions"
 
 interface Props {
 	title?: string
@@ -33,7 +32,6 @@ const { title, description } = Astro.props
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{`${title} | Component`}</title>
-		<ViewTransition />
 	</head>
 	<body>
 		<section class="flex h-screen w-full flex-col">
