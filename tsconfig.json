@@ -4,8 +4,7 @@
 		"src/**/*.ts",
 		"src/**/*.tsx",
 		"src/**/*.astro",
-		".astro/types.d.ts",
-		"src/pages/docs/index.mdx"
+		".astro/types.d.ts"
 	],
 	"compilerOptions": {
 		// Enable top-level await, and other modern ESM features.

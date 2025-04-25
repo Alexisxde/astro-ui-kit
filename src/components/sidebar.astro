@@ -17,18 +17,17 @@ const NAVIGATION: NavigationGroup[] = [
 	{
 		name: "Getting Started",
 		children: [
-			{ name: "Introduction", href: "/docs" },
-			{ name: "Installation", href: "/docs/installation" }
+			{ name: "Installation", href: "/components/installation" }
 		]
 	},
 	{
 		name: "Components",
 		children: [
-      { name: "Button", href: "/docs/button" },
-      { name: "Input", href: "/docs/input" },
-      { name: "Badge", href: "/docs/badge" },
-      { name: "Sheet", href: "/docs/sheet" },
-      { name: "Disclosure", href: "/docs/disclosure" }
+      { name: "Button", href: "/components/button" },
+      { name: "Input", href: "/components/input" },
+      { name: "Badge", href: "/components/badge" },
+      { name: "Sheet", href: "/components/sheet" },
+      { name: "Disclosure", href: "/components/disclosure" }
     ]
 	}
 ]
@@ -46,7 +45,7 @@ const { slug } = Astro.params
 				</div>
         <div class="space-y-1 border-l-1 border-neutral-800">
           {children.map(({ name, href, isNew, isUpdated }) => (
-            <a class={cn("transition-colors duration-100 ease-in-out flex items-center pl-4 text-xs font-normal", href === `/docs/${slug}` ? "text-neutral-500 underline" : "text-neutral-400 hover:text-neutral-100")} {href}>
+            <a class={cn("transition-colors duration-100 ease-in-out flex items-center pl-4 text-xs font-normal", href === `/components/${slug}` ? "text-neutral-500 underline" : "text-neutral-400 hover:text-neutral-100")} {href}>
               <span>{name}</span>
               {isNew && (
                 <span class="ml-2 rounded-lg px-2 text-[9px] whitespace-nowrap bg-emerald-700 text-emerald-50">
